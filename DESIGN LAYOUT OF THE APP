@@ -1,0 +1,102 @@
+step1: Configure colors.xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#5bb4b4</color>
+    <color name="colorPrimaryDark">#308e9f</color>
+    <color name="colorAccent">#7fbcf5</color>
+    <color name="textColor">#292929</color>
+</resources>
+step2: Specify strings.xml
+<resources>
+    <string name="app_name">OTPAuthentication</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="generate_otp">Generate OTP</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="verify_sign_in">Verify and Sign In</string>
+    <string name="sign_out">sign out</string>
+</resources>
+step3: Design interface of Main Activity
+The MainActivity is our first screen. It will consist of two edit texts for the phone number and OTP and two buttons to generate OTP and verify OTP respectively.
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.tutorial.lws.otpauthentication.MainActivity">
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/et_phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/phone_number"
+        android:textColor="@color/textColor"
+        android:layout_margin="20dp"/>
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/et_otp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_otp"
+        android:clickable="false"
+        android:textColor="@color/textColor"
+        android:layout_margin="20dp"/>
+
+    <Button
+        android:id="@+id/btn_generate_otp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/generate_otp"
+        android:background="@color/colorAccent"
+        android:textColor="@color/textColor"
+        android:layout_margin="20dp"/>
+    <Button
+        android:id="@+id/btn_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/verify_sign_in"
+        android:background="@color/colorAccent"
+        android:textColor="@color/textColor"
+        android:layout_margin="20dp"/>
+
+</LinearLayout>
+
+Our App will look like this when you run it on the device.
+step4: CREATE A NEW ACTIVITY SignedIn activity
+Right click on the app
+click on New>Activity>Empty Activity
+Name the name it as SignedIn activity.
+click finish.
+step5: Design interface of SignedIn Activity
+The SignedIn activity is our second screen which would open on successful OTP verification. It will consist of one text view to display user’s mobile number and one sign out button.
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tutorial.lws.otpauthentication.SignedIn">
+
+    <TextView
+        android:id="@+id/tv_phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"/>
+    
+    <Button
+        android:id="@+id/btn_sign_out"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/verify_sign_in"
+        android:background="@color/colorAccent"
+        android:textColor="@color/textColor"
+        android:layout_margin="20dp"/>
+    
+</RelativeLayout>
+
+The second screen will look like this initially
