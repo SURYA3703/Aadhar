@@ -1,0 +1,5 @@
+The “OTP Authentication” app will consist of two Activities  MainActivity and SignedIn. MainActivity activity will have two edit texts, one for the phone number and the other for received OTP, Also it will have two buttons, one to generate OTP and other to verify OTP. If the OTP match is successful then it will open SignedIn activity via Intent. If the OTP does not match then it will pop a toast message, “Incorrect OTP”.
+
+SignedIn activity will include a text view displaying number and a sign out button on click of which app sign-outs and go back to MainActivity activity.
+
+Note: Due to security issues the complete mobile number is not entered in the above video example.
