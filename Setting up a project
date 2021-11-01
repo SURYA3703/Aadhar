@@ -1,0 +1,37 @@
+STEP1: SET UP A NEW ANDROID PROJECT
+
+Start Android Studio and Click on “new project”.
+Give your application a name, mine is “OTP Authentication”.
+click next and choose Target android device.
+next, choose an empty activity to keep things simple.
+next, name your Activity and click finish to build the project.
+
+STEP2: Add Firebase to your app
+
+Goto Firebase Console
+Login with your Gmail ID
+On the welcome screen of Firebase click on Add project.
+Add project window will open, there enter your project name and select your country, Project id will be automatically created and then click on CREATE PROJECT button.
+After this, your app’s dashboard will open. click on Add Firebase to your Android app
+Now you have to register your app by providing the app package name and SHA-1 signing certificate on below screen.
+To find the App package name open AndroidManifest.xml and on the top, there is the package name
+To get the SHA-1 signing certificate, click on Gradle tab on the right end of Android studio to open Gradle properties> then click on :app> android> double click on signingReport. In the Monitor pane, you will see SHA1.
+Copy and paste the package name and the SHA1 signing certificate in the firebase console register page. Then, click on REGISTER APP button.
+Now you have to download the google-services.json file from the download config page and paste it in app module.
+After than in project pane, click on Gradle Scripts> open project level build.gradle file and add google service dependency in buildscript.
+classpath 'com.google.gms:google-services:3.2.0'
+
+open app level build.gradle add firebase dependency along with firebase authentication dependency.
+implementation 'com.google.firebase:firebase-core:11.8.0'
+implementation 'com.google.firebase:firebase-auth:11.8.0'
+
+note, for android studio below 3.0.1 use compile instead of implementation.
+and add the plugin for google service at the bottom of the file.
+
+apply plugin: 'com.google.gms.google-services'
+Click on Sync Now and let the Gradle build.
+Now go back to Firebase console and click on Project Overview. In Discover Firebase section there is a card named Authentication, click on GET STARTED on Authentication card.
+step3: EDIT androidmanifest.XML
+Our application needs internet for sending OTP.  So, for this reason, we have to, first of all, give permission to our app to use the internet. Add the following line to your AndroidManifest.xml inside manifest tag.
+
+<uses-permission android:name=“android.permission.INTERNET”/>
